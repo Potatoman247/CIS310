@@ -1,2 +1,4 @@
-# Bellevue-C-
-Repo containing assignments for Bellevue Programming in C++
+# CIS 310 C++
+## Contributors
+* Robert Flowers
+* Aidan Jacoby
