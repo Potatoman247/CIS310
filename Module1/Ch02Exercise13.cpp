@@ -2,8 +2,7 @@
     Students Name: Aidan Jacoby
     Date: 08/29/2024
     File Name: Ch02Exercise13.cpp
-    Description: This program asks the user to enter two numbers.  It then calculates and outputs
-                 the average of these two numbers.
+
 */
 
 #include <iostream>;
