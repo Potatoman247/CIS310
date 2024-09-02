@@ -22,7 +22,7 @@ int main()
     double finalPrice;
 
 
-    cout << "\n  Welcome to the Average Calculator App" << endl;
+    cout << "\n  Welcome to the Item Cost Calculator App" << endl;
 
     cout << "\n  Enter the item's original price: ";
     cin >> basePrice;
