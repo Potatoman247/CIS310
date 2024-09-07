@@ -1,0 +1,45 @@
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+	float averageDailyBalance;
+	float netBalance;
+	float interestRate;
+	float interest;
+	double payment;
+	int d1;
+	int d2;
+
+	cout << "Please Input The Starting Net Balance : ";
+	cin >> netBalance;
+
+	cout << "\nPlease Enter The Value Of The Payment Being Made : ";
+	cin >> payment;
+
+	cout << "\nPlease Enter The Number Of Days In The Billing Cycle : ";
+	cin >> d1;
+
+	cout << "\nPlease Enter The Number Of Days Payment Was Made Before Billing Cycle : ";
+	cin >> d2;
+
+	cout << "\nFinally, Please Enter The Interest Rate : ";
+	cin >> interestRate;
+
+	cout << "\n";
+
+	averageDailyBalance = (netBalance * d1 - payment * d2) / d1;
+
+	interest = averageDailyBalance * interestRate;
+	cout << "Your Interest Is : ";
+	cout << fixed << setprecision(2); // set the decimal to two places.
+	locale loc(""); // for the thousands separator 
+	cout.imbue(loc); // for the thousands separator 
+	cout << interest;
+
+
+
+}
