@@ -1,0 +1,127 @@
+#include <iostream>
+using namespace std;
+
+class bankAccount
+{
+	private:
+		string accountName = "";
+		int accountNumber = 0;
+		string accountType = "";
+		double balance = 0.00;
+		double interestRate = 0.00;
+		static int accNum;
+
+	public:
+		
+		
+		bankAccount() {
+			accNum += 1;
+			accountNumber = accNum;
+		}
+		void getAccountName(string name) {
+			accountName = name;
+		}
+		void getAccountType(string type) {
+				if (type == "Checking") {
+					accountType = type;
+				}
+				else if (type == "Savings") {
+					accountType = type;
+				}
+				else {
+					cout << "\nThat Account Type Is Invalid, Please Choose Either Checking Or Savings\n";
+				}
+		}
+		void getBalance(double inBalance) {
+			balance = inBalance;
+		}
+		void getInterestRate(double rate) {
+			interestRate = rate;
+		}
+
+		string accountNameOut() {
+			return accountName;
+		}
+		int accountNumOut() {
+			return accountNumber;
+		}
+		string accountTypeOut() {
+			return accountType;
+		}
+		double balanceOut() {
+			return balance;
+		}
+		double interestRateOut() {
+			return interestRate;
+		}
+};
+
+int bankAccount::accNum = 0;
+
+int main()
+{
+	int acc;
+	string newName;
+	string newType;
+	double newBalance;
+	double newRate;
+
+	bankAccount customers[10];
+
+	cout << "Welcome To My Wonderful Banking Application!\n";
+	cout << "This App Will Generate 10 Customers, All With Unique Account Numbers.\n";
+	cout << "You Will Be Able To Go In And Adjust The Names, Balances, Account Types And Interest Rates of Each Customer!\n";
+	for (int i = 0; i < 10; i++) {
+		
+		cout << "\n\nPlease Choose An Account, From 1-10: ";
+		cin >> acc;
+
+		cout << "Current Account Information\n";
+			cout << "Account Number: " << customers[acc - 1].accountNumOut() << "\n";
+			cout << "Account Name: " << customers[acc-1].accountNameOut() << "\n";
+			cout << "Account Type: " << customers[acc - 1].accountTypeOut() << "\n";
+			cout << "Account Balance: " << customers[acc - 1].balanceOut() << "\n";
+			cout << "Account Interest Rate: " << customers[acc - 1].interestRateOut() << "\n";
+
+		cout << "\nNext, We Will Be Updating This Account's Information\n\n";
+			cout << "New Account Name: ";
+			cin >> newName;
+			customers[acc - 1].getAccountName(newName);
+			cout << "\n";
+
+			while (customers[acc - 1].accountTypeOut() == "") {
+				cout << "New Account Type: ";
+				cin >> newType;
+				customers[acc - 1].getAccountType(newType);
+				cout << "\n";
+			}
+
+			cout << "New Account Balance: ";
+			cin >> newBalance;
+			customers[acc - 1].getBalance(newBalance);
+			cout << "\n";
+
+			cout << "New Account Interest Rate: ";
+			cin >> newRate;
+			customers[acc - 1].getInterestRate(newRate);
+			cout << "\n";
+
+		cout << "\nNew Account Information\n\n";
+			cout << "Account Name: " << customers[acc - 1].accountNameOut() << "\n";
+			cout << "Account Number: " << customers[acc - 1].accountNumOut() << "\n";
+			cout << "Account Type: " << customers[acc - 1].accountTypeOut() << "\n";
+			cout << "Account Balance: " << customers[acc - 1].balanceOut() << "\n";
+			cout << "Account Interest Rate: " << customers[acc - 1].interestRateOut() << "\n";
+		acc = 0;
+	}
+
+	cout << "Now That All Of The Accounts Were Updated, The Final Account Information Is This!\n\n";
+	cout << "Current Account Information\n";
+	for (int i = 0; i < 10; i++) {
+		cout << "\nAccount Number: " << customers[i].accountNumOut() << "\n";
+		cout << "Account Name: " << customers[i].accountNameOut() << "\n";
+		cout << "Account Type: " << customers[i].accountTypeOut() << "\n";
+		cout << "Account Balance: " << customers[i].balanceOut() << "\n";
+		cout << "Account Interest Rate: " << customers[i].interestRateOut() << "\n";
+	}
+}
